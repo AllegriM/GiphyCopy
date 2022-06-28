@@ -1,0 +1,31 @@
+:root {
+    --gridList-column: 250px;
+    /* --gridList-rows: 250px; */
+    --gridList-gap: 6px;
+}
+
+.ListOfGifs {
+    display: grid !important;
+    min-height: 100vh !important;
+    grid-template-columns: repeat(auto-fit, minmax(var(--gridList-column), 1fr)) !important;
+    /* grid-auto-rows: var(--gridList-rows) !important; */
+    grid-template-rows: masonry !important;
+    grid-auto-flow: row dense !important;
+    grid-gap: var(--gridList-gap, 6px) !important;
+    gap: var(--gridList-gap, 6px) !important;
+    align-items: center !important;
+}
+
+@media screen and (min-width: 37.5rem) {
+    :root {
+        --gridList-column: 180px !important;
+        --gridList-rows: 200px !important;
+    }
+}
+
+@media screen and (min-width: 60rem) {
+    :root {
+        --gridList-column: 300px !important;
+        --gridList-rows: 210px !important;
+    }
+}
