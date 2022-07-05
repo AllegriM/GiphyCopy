@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { GifsContext } from "../context/GifsContext";
-import fetchGifs from "../helpers/fetchGifs";
+import fetchGifs from "../helpers/getGifs";
 
 export function useGifs( { keyword } = {keyword: null} ) {
 

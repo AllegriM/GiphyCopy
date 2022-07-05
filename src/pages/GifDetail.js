@@ -2,11 +2,9 @@ import { Box } from "@chakra-ui/react"
 import { useContext } from "react"
 import { Gif } from "../components/Gif"
 import { GifsContext } from "../context/GifsContext"
+import './detail.css'
 
 export const GifDetail = ( {params} ) => {
-
-    // const paramsCut = params.id.slice(0,-3)
-    // console.log(params.id)
 
     const {gif} = useContext(GifsContext)
 
@@ -17,7 +15,7 @@ export const GifDetail = ( {params} ) => {
             {
                 gifDetail !== undefined 
                 ?
-                <Gif key={gifDetail.id} data={gifDetail} src={gifDetail.images.original.url} />            
+                <Gif className='detail-img' key={gifDetail.id} data={gifDetail} src={gifDetail.images.original.url} />            
                 : 
                 null
             }
