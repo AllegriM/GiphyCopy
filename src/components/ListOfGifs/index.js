@@ -1,19 +1,18 @@
 import { CircularProgress } from "@chakra-ui/react"
-import { Gif } from "./Gif"
-import "../pages/listOfGifs.css";
+import { Gif } from "components/Gif/index"
 
-export const Gifs = ( {gifs, loading = {}} ) => {
-
+export const ListOfGifs = ( {gifs, loading = {}} ) => {
+    
     return (
         <section>        
             {
-                loading ? 
+                !loading ? 
                 <CircularProgress isIndeterminate />
                 :
                 <div className="grid">
                     {
                     gifs.map((singleGif) => 
-                    <Gif key={singleGif.id} src={singleGif.images.original.url} data={singleGif}/>)
+                    <Gif key={singleGif.id} src={singleGif.images?.original.url} data={singleGif}/>)
                     }
                 </div>
             }

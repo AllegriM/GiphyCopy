@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react"
-import fetchTrendGifs from "../../helpers/getTrendGifs"
-import { Category } from "../Category/Category"
-// import { ListOfGifs } from "../../pages/SearchResults"
+import { Spinner } from "@chakra-ui/react"
+import { useNearScreen } from "hooks/useNearScreen"
+import React, { Suspense } from "react"
 
-export const TrendingSearches = () => {
-    const [trends, setTrends] = useState([])
 
-    useEffect(() => {
-        fetchTrendGifs()
-            .then(data => setTrends(data.data))
-    }, [])
+const TrendingSearches = React.lazy(() => import("./TrendingSearches"))
 
-    return (
-        <Category title='Trending' options={trends}/>
-    )
+// Determina si quiero o no mostrar Trending views dependiendo el VIEWPORT
+// Cuando intersecciona con el item que quiero mostrar, hace la peticion a la api
+export const LazyTrending = () => {
+
+    // useRef = permite guardar valor entre renderizados sin alterarlo
+    const { isNearScreen, fromRef } = useNearScreen( {distance:'100px'})
+
+    return <div ref={fromRef}>
+    <Suspense fallback={<Spinner />}>
+        {isNearScreen ? <TrendingSearches /> : null}
+    </Suspense>
+    </div>
 }

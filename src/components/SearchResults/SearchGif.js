@@ -1,8 +1,10 @@
-import { Button, Input } from "@chakra-ui/react"
+import { Input } from "@chakra-ui/react"
 import { useState } from "react"
 import { useLocation } from "wouter";
 
-export const SearchGif = ( {keyword, setKeyword} ) => {
+export const SearchGif = () => {
+    
+    const [keyword, setKeyword] = useState("")
 
     const [location, setLocation] = useLocation();
 
@@ -12,7 +14,7 @@ export const SearchGif = ( {keyword, setKeyword} ) => {
     }
 
     const handleChange = e => {
-        setKeyword(e.target.value)
+        setKeyword(e.target.value) 
     }
 
     return (

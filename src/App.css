@@ -4,12 +4,15 @@
 
 .App{
   background-color: #282c34;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-content{
+  min-height: 100vh;
+  height: 100%;
   background-color: #282c34;
 }
 

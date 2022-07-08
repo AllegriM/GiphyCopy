@@ -9,7 +9,7 @@ export const Category = ({title, options}) => {
                 options.map( (trend, index) => {
                     return(
                         <Link key={index} href={`/search/${decodeURI(trend)}`} >
-                            <Text cursor='pointer' display='inline-block' m='0' mr='.25em' color='#e2dcdc' fontSize='25px'>{trend}</Text>
+                            <Text cursor='pointer' display='inline-block' m='0' mr='.25em' color='#e2dcdc' fontSize='20px' _hover={{color: "darkviolet"}}>{trend}</Text>
                         </Link>
                     )
                 })

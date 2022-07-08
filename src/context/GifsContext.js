@@ -4,13 +4,13 @@ export const GifsContext = createContext([])
 
 const GifsContextProvider = ( {children} ) => {
 
-    const [gif, setGif] = useState([])
-
+    const [gifs, setGifs] = useState([])
+    
     return(
         <GifsContext.Provider 
         value={{
-            gif,
-            setGif
+            gifs,
+            setGifs
         }}>
             {children}
         </GifsContext.Provider>

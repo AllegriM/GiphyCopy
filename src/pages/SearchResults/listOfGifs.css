@@ -2,6 +2,13 @@
     --column-count: 4;
 }
 
+
+@media screen and (max-width: 37.5rem) {
+    :root {
+        --column-count: 1;
+    }
+}
+
 @media screen and (min-width: 37.5rem) {
     :root {
         --column-count: 2;
@@ -18,5 +25,6 @@
     column-count: var(--column-count);
     column-gap: 5px;
     max-width: 1000px;
+    min-height: 1800px;
     margin: 0 auto;
 }
