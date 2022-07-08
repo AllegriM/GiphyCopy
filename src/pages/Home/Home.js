@@ -8,10 +8,9 @@ export const Home = () => {
     
     const { gifs } = useGifs()
 
-    console.log(gifs)
 
     return (
-        <Container>
+        <Container maxW='70ch'>
             <Box>
                 <Text fontSize='2rem' textAlign='center' pt='2em'>Looking for that funny GIF?</Text>
                 <SearchGif />

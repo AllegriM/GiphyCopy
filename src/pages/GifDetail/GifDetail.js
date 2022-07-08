@@ -20,7 +20,7 @@ export const GifDetail = ({ params }) => {
 
             <Box pt='3em' display='flex' justifyContent='center' flexDirection='column' alignItems='center'>
                 <Text>{gifDetail.title}</Text>
-                <Box w='500px' h='300px'>
+                <Box>
                     {
                         gifDetail !== undefined
                             ?

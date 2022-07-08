@@ -22,9 +22,13 @@
 }
 
 .grid{
+    /* display: grid; */
     column-count: var(--column-count);
-    column-gap: 5px;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    /* ancho minimo de 300px y max 1 fraction */
+    grid-template-rows: masonry;
     max-width: 1000px;
     min-height: 1800px;
     margin: 0 auto;
+    gap: 10px;
 }
