@@ -1,6 +1,7 @@
+import React from "react"
 import { Link } from "wouter"
 
-export const Gif = ( {src, data} ) => {
+function Gif ( {src, data} ) {
 
     return (
         <div className='image_container'>
@@ -10,3 +11,8 @@ export const Gif = ( {src, data} ) => {
         </div>
     )
 }
+
+// Todos los que estabab no los vuelvo a renderizar 
+export default React.memo(Gif, (prevProps, nextProps) => {
+    return (prevProps.id === nextProps.id)
+})

@@ -1,5 +1,5 @@
 import { CircularProgress } from "@chakra-ui/react"
-import { Gif } from "components/Gif/index"
+import Gif from "components/Gif/index"
 
 export const ListOfGifs = ( {gifs, loading = {}} ) => {
     

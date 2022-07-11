@@ -6,6 +6,8 @@ import { Link } from "wouter";
 import { useNearScreen } from "hooks/useNearScreen";
 import { useCallback, useEffect, useRef } from "react";
 import debounce from "just-debounce-it";
+import { useTitle } from "hooks/useSEO";
+import { Helmet } from "react-helmet";
 
 export const SearchResults = ({ params }) => {
 
@@ -19,6 +21,9 @@ export const SearchResults = ({ params }) => {
         externalRef: loading ? null : externalRef,
         once: false
         })
+
+    const title = gifs ? `${gifs.length} resultados de ${decodeURI(keyword)}` : " null"
+    useTitle( {title} )
 
     //const debounceHandleNextPage = useRef() //OPCION 1 con useRef()
 
@@ -36,7 +41,6 @@ export const SearchResults = ({ params }) => {
         ), [])
     
     useEffect(() => {
-        console.log(isNearScreen)
         if (isNearScreen) debounceHandleNextPage()
     },  [debounceHandleNextPage, isNearScreen])
 
@@ -52,6 +56,10 @@ export const SearchResults = ({ params }) => {
                     <CircularProgress isIndeterminate />
                     :
                     <>
+                        <Helmet>
+                            <title>{title}</title>
+                            <meta name="description" content={title} /> 
+                        </Helmet>
                         <Text textAlign='start'>{decodeURI(keyword)}</Text>
                         <ListOfGifs gifs={gifs} />
                         <div id="visor" ref={fromRef}></div>

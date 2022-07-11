@@ -1,5 +1,5 @@
 import { Input } from "@chakra-ui/react"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { useLocation } from "wouter";
 
 export const SearchGif = () => {
@@ -13,9 +13,9 @@ export const SearchGif = () => {
         setLocation(`/search/${keyword}`)
     }
 
-    const handleChange = e => {
+    const handleChange = useCallback((e) => {
         setKeyword(e.target.value) 
-    }
+    }, [])
 
     return (
         <form onSubmit={handleSubmit}>
